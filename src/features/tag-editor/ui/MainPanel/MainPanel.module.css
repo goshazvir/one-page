@@ -1,0 +1,55 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.addButton {
+  width: calc(100% + 28px);
+  margin: 0 -14px;
+  justify-content: flex-start;
+  height: 40px;
+  padding: 0 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  font-weight: 450;
+  border-radius: 0;
+}
+
+.addButton:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stylesButton {
+  width: 100%;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.stylesButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.stylesLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stylesIcon {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chevronIcon {
+  color: rgba(255, 255, 255, 0.4);
+}

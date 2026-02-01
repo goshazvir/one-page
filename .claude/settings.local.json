@@ -4,9 +4,6 @@
       "Bash(uv tool install:*)",
       "Bash(specify --help:*)",
       "Bash(specify init:*)",
-      "Bash(git -C /Users/goshazvir/Documents/github/one-page status)",
-      "Bash(git -C /Users/goshazvir/Documents/github/one-page log --oneline -5)",
-      "Bash(git -C /Users/goshazvir/Documents/github/one-page fetch --all --prune)",
       "Bash(ls:*)",
       "Bash(npm run build:*)"
     ]

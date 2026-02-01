@@ -1,0 +1,65 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+  margin: 0 -14px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.options {
+  display: flex;
+  gap: 8px;
+}
+
+.optionsStretch {
+  display: flex;
+  gap: 8px;
+}
+
+.optionsStretch .option {
+  flex: 1;
+}
+
+.option {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.optionSelected {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.optionSelected:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}

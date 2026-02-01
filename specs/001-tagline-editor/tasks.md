@@ -19,13 +19,13 @@
 
 **Purpose**: Shared utilities and configuration
 
-- [ ] T001 Create debounce utility in src/shared/lib/debounce.ts
-- [ ] T002 [P] Create cn (clsx wrapper) utility in src/shared/lib/cn.ts
-- [ ] T003 [P] Create API simulator in src/shared/api/apiSimulator.ts
-- [ ] T004 [P] Create constants (sizes, radii, styles) in src/shared/config/constants.ts
-- [ ] T005 Create shared/lib/index.ts barrel export
-- [ ] T006 [P] Create shared/api/index.ts barrel export
-- [ ] T007 [P] Create shared/config/index.ts barrel export
+- [x] T001 Create debounce utility in src/shared/lib/debounce.ts
+- [x] T002 [P] Create cn (clsx wrapper) utility in src/shared/lib/cn.ts
+- [x] T003 [P] Create API simulator in src/shared/api/apiSimulator.ts
+- [x] T004 [P] Create constants (sizes, radii, styles) in src/shared/config/constants.ts
+- [x] T005 Create shared/lib/index.ts barrel export
+- [x] T006 [P] Create shared/api/index.ts barrel export
+- [x] T007 [P] Create shared/config/index.ts barrel export
 
 **Checkpoint**: Utilities ready for use
 
@@ -39,33 +39,33 @@
 
 ### Atoms
 
-- [ ] T008 [P] Create Button component in src/shared/ui/atoms/Button/Button.tsx with variants (primary, secondary, ghost, icon)
-- [ ] T009 [P] Create Button.module.css in src/shared/ui/atoms/Button/
-- [ ] T010 [P] Create Input component in src/shared/ui/atoms/Input/Input.tsx
-- [ ] T011 [P] Create Input.module.css in src/shared/ui/atoms/Input/
-- [ ] T012 [P] Create Icon component in src/shared/ui/atoms/Icon/Icon.tsx
-- [ ] T013 [P] Create icons.ts with SVG paths (plus, arrow-left, close, drag-handle, align-left, align-center, align-right) in src/shared/ui/atoms/Icon/
-- [ ] T014 [P] Create Text component in src/shared/ui/atoms/Text/Text.tsx with size variants
-- [ ] T015 [P] Create Text.module.css in src/shared/ui/atoms/Text/
-- [ ] T016 Create atoms barrel exports in src/shared/ui/atoms/index.ts
+- [x] T008 [P] Create Button component in src/shared/ui/atoms/Button/Button.tsx with variants (primary, secondary, ghost, icon)
+- [x] T009 [P] Create Button.module.css in src/shared/ui/atoms/Button/
+- [x] T010 [P] Create Input component in src/shared/ui/atoms/Input/Input.tsx
+- [x] T011 [P] Create Input.module.css in src/shared/ui/atoms/Input/
+- [x] T012 [P] Create Icon component in src/shared/ui/atoms/Icon/Icon.tsx
+- [x] T013 [P] Create icons.ts with SVG paths (plus, arrow-left, close, drag-handle, align-left, align-center, align-right) in src/shared/ui/atoms/Icon/
+- [x] T014 [P] Create Text component in src/shared/ui/atoms/Text/Text.tsx with size variants
+- [x] T015 [P] Create Text.module.css in src/shared/ui/atoms/Text/
+- [x] T016 Create atoms barrel exports in src/shared/ui/atoms/index.ts
 
 ### Molecules
 
-- [ ] T017 [P] Create InputField component (Label + Input + Error) in src/shared/ui/molecules/InputField/InputField.tsx
-- [ ] T018 [P] Create InputField.module.css in src/shared/ui/molecules/InputField/
-- [ ] T019 [P] Create SegmentedControl component in src/shared/ui/molecules/SegmentedControl/SegmentedControl.tsx
-- [ ] T020 [P] Create SegmentedControl.module.css in src/shared/ui/molecules/SegmentedControl/
-- [ ] T021 [P] Create ListItem component in src/shared/ui/molecules/ListItem/ListItem.tsx
-- [ ] T022 [P] Create ListItem.module.css in src/shared/ui/molecules/ListItem/
-- [ ] T023 Create molecules barrel exports in src/shared/ui/molecules/index.ts
+- [x] T017 [P] Create InputField component (Label + Input + Error) in src/shared/ui/molecules/InputField/InputField.tsx
+- [x] T018 [P] Create InputField.module.css in src/shared/ui/molecules/InputField/
+- [x] T019 [P] Create SegmentedControl component in src/shared/ui/molecules/SegmentedControl/SegmentedControl.tsx
+- [x] T020 [P] Create SegmentedControl.module.css in src/shared/ui/molecules/SegmentedControl/
+- [x] T021 [P] Create ListItem component in src/shared/ui/molecules/ListItem/ListItem.tsx
+- [x] T022 [P] Create ListItem.module.css in src/shared/ui/molecules/ListItem/
+- [x] T023 Create molecules barrel exports in src/shared/ui/molecules/index.ts
 
 ### Organisms
 
-- [ ] T024 Create Panel component in src/shared/ui/organisms/Panel/Panel.tsx
-- [ ] T025 [P] Create PanelHeader component in src/shared/ui/organisms/Panel/PanelHeader.tsx
-- [ ] T026 [P] Create Panel.module.css in src/shared/ui/organisms/Panel/
-- [ ] T027 Create organisms barrel exports in src/shared/ui/organisms/index.ts
-- [ ] T028 Create shared/ui/index.ts master barrel export
+- [x] T024 Create Panel component in src/shared/ui/organisms/Panel/Panel.tsx
+- [x] T025 [P] Create PanelHeader component in src/shared/ui/organisms/Panel/PanelHeader.tsx
+- [x] T026 [P] Create Panel.module.css in src/shared/ui/organisms/Panel/
+- [x] T027 Create organisms barrel exports in src/shared/ui/organisms/index.ts
+- [x] T028 Create shared/ui/index.ts master barrel export
 
 **Checkpoint**: UI Kit ready — user stories can begin
 
@@ -79,42 +79,42 @@
 
 ### Entity Layer (Tagline)
 
-- [ ] T029 [P] [US1] Create Tag, TaglineSettings, Tagline types in src/entities/tagline/model/types.ts
-- [ ] T030 [US1] Create TaglineStore with MobX in src/entities/tagline/model/taglineStore.ts
-- [ ] T031 [P] [US1] Create tagline API simulation in src/entities/tagline/api/taglineApi.ts
-- [ ] T032 [US1] Create tagline model barrel exports in src/entities/tagline/model/index.ts
-- [ ] T033 [P] [US1] Create tagline api barrel exports in src/entities/tagline/api/index.ts
+- [x] T029 [P] [US1] Create Tag, TaglineSettings, Tagline types in src/entities/tagline/model/types.ts
+- [x] T030 [US1] Create TaglineStore with MobX in src/entities/tagline/model/taglineStore.ts
+- [x] T031 [P] [US1] Create tagline API simulation in src/entities/tagline/api/taglineApi.ts
+- [x] T032 [US1] Create tagline model barrel exports in src/entities/tagline/model/index.ts
+- [x] T033 [P] [US1] Create tagline api barrel exports in src/entities/tagline/api/index.ts
 
 ### Entity UI
 
-- [ ] T034 [P] [US1] Create TagChip component in src/entities/tagline/ui/TagChip/TagChip.tsx
-- [ ] T035 [P] [US1] Create TagChip.module.css with style/size/radius variants in src/entities/tagline/ui/TagChip/
-- [ ] T036 [P] [US1] Create TaglinePreview component in src/entities/tagline/ui/TaglinePreview/TaglinePreview.tsx
-- [ ] T037 [P] [US1] Create TaglinePreview.module.css in src/entities/tagline/ui/TaglinePreview/
-- [ ] T038 [US1] Create tagline ui barrel exports in src/entities/tagline/ui/index.ts
-- [ ] T039 [US1] Create tagline entity barrel export in src/entities/tagline/index.ts
+- [x] T034 [P] [US1] Create TagChip component in src/entities/tagline/ui/TagChip/TagChip.tsx
+- [x] T035 [P] [US1] Create TagChip.module.css with style/size/radius variants in src/entities/tagline/ui/TagChip/
+- [x] T036 [P] [US1] Create TaglinePreview component in src/entities/tagline/ui/TaglinePreview/TaglinePreview.tsx
+- [x] T037 [P] [US1] Create TaglinePreview.module.css in src/entities/tagline/ui/TaglinePreview/
+- [x] T038 [US1] Create tagline ui barrel exports in src/entities/tagline/ui/index.ts
+- [x] T039 [US1] Create tagline entity barrel export in src/entities/tagline/index.ts
 
 ### Feature: Tag Editor
 
-- [ ] T040 [US1] Create PanelNavigationStore in src/features/tag-editor/model/panelNavigation.ts
-- [ ] T041 [US1] Create tag-editor model barrel exports in src/features/tag-editor/model/index.ts
-- [ ] T042 [P] [US1] Create TagList component in src/features/tag-editor/ui/TagList/TagList.tsx
-- [ ] T043 [P] [US1] Create TagList.module.css in src/features/tag-editor/ui/TagList/
-- [ ] T044 [US2] Create ItemForm component (create/edit mode) in src/features/tag-editor/ui/ItemForm/ItemForm.tsx
-- [ ] T045 [P] [US2] Create ItemForm.module.css in src/features/tag-editor/ui/ItemForm/
-- [ ] T046 [US1] Create MainPanel component in src/features/tag-editor/ui/MainPanel/MainPanel.tsx
-- [ ] T047 [P] [US1] Create MainPanel.module.css in src/features/tag-editor/ui/MainPanel/
-- [ ] T048 [US1] Create tag-editor ui barrel exports in src/features/tag-editor/ui/index.ts
-- [ ] T049 [US1] Create tag-editor feature barrel export in src/features/tag-editor/index.ts
+- [x] T040 [US1] Create PanelNavigationStore in src/features/tag-editor/model/panelNavigation.ts
+- [x] T041 [US1] Create tag-editor model barrel exports in src/features/tag-editor/model/index.ts
+- [x] T042 [P] [US1] Create TagList component in src/features/tag-editor/ui/TagList/TagList.tsx
+- [x] T043 [P] [US1] Create TagList.module.css in src/features/tag-editor/ui/TagList/
+- [x] T044 [US2] Create ItemForm component (create/edit mode) in src/features/tag-editor/ui/ItemForm/ItemForm.tsx
+- [x] T045 [P] [US2] Create ItemForm.module.css in src/features/tag-editor/ui/ItemForm/
+- [x] T046 [US1] Create MainPanel component in src/features/tag-editor/ui/MainPanel/MainPanel.tsx
+- [x] T047 [P] [US1] Create MainPanel.module.css in src/features/tag-editor/ui/MainPanel/
+- [x] T048 [US1] Create tag-editor ui barrel exports in src/features/tag-editor/ui/index.ts
+- [x] T049 [US1] Create tag-editor feature barrel export in src/features/tag-editor/index.ts
 
 ### App Integration (MVP)
 
-- [ ] T050 [US1] Create RootStore combining TaglineStore and PanelNavigationStore in src/app/providers/StoreProvider.tsx
-- [ ] T051 [US1] Create providers barrel export in src/app/providers/index.ts
-- [ ] T052 [US1] Create EditorPage layout (Preview + Panel) in src/pages/EditorPage/EditorPage.tsx
-- [ ] T053 [P] [US1] Create EditorPage.module.css in src/pages/EditorPage/
-- [ ] T054 [US1] Create EditorPage barrel export in src/pages/EditorPage/index.ts
-- [ ] T055 [US1] Update App.tsx with StoreProvider and EditorPage in src/app/App.tsx
+- [x] T050 [US1] Create RootStore combining TaglineStore and PanelNavigationStore in src/app/providers/StoreProvider.tsx
+- [x] T051 [US1] Create providers barrel export in src/app/providers/index.ts
+- [x] T052 [US1] Create EditorPage layout (Preview + Panel) in src/pages/EditorPage/EditorPage.tsx
+- [x] T053 [P] [US1] Create EditorPage.module.css in src/pages/EditorPage/
+- [x] T054 [US1] Create EditorPage barrel export in src/pages/EditorPage/index.ts
+- [x] T055 [US1] Update App.tsx with StoreProvider and EditorPage in src/app/App.tsx
 
 **Checkpoint**: MVP complete — users can view, edit, and add tags
 
@@ -128,15 +128,15 @@
 
 ### Feature: Style Settings
 
-- [ ] T056 [US3] Create StylesPanel component in src/features/style-settings/ui/StylesPanel/StylesPanel.tsx
-- [ ] T057 [P] [US3] Create StylesPanel.module.css in src/features/style-settings/ui/StylesPanel/
-- [ ] T058 [US3] Create style-settings ui barrel exports in src/features/style-settings/ui/index.ts
-- [ ] T059 [US3] Create style-settings feature barrel export in src/features/style-settings/index.ts
+- [x] T056 [US3] Create StylesPanel component in src/features/style-settings/ui/StylesPanel/StylesPanel.tsx
+- [x] T057 [P] [US3] Create StylesPanel.module.css in src/features/style-settings/ui/StylesPanel/
+- [x] T058 [US3] Create style-settings ui barrel exports in src/features/style-settings/ui/index.ts
+- [x] T059 [US3] Create style-settings feature barrel export in src/features/style-settings/index.ts
 
 ### Integration
 
-- [ ] T060 [US3] Add StylesPanel to EditorPage panel switching logic in src/pages/EditorPage/EditorPage.tsx
-- [ ] T061 [US3] Add debounced updateSettings to TaglineStore if not already present in src/entities/tagline/model/taglineStore.ts
+- [x] T060 [US3] Add StylesPanel to EditorPage panel switching logic in src/pages/EditorPage/EditorPage.tsx
+- [x] T061 [US3] Add debounced updateSettings to TaglineStore if not already present in src/entities/tagline/model/taglineStore.ts
 
 **Checkpoint**: Style customization complete
 
@@ -150,8 +150,8 @@
 
 ### Implementation
 
-- [ ] T062 [US4] Add panel transition animations with framer-motion in src/pages/EditorPage/EditorPage.tsx
-- [ ] T063 [US4] Add close button handler to hide panel in src/features/tag-editor/ui/MainPanel/MainPanel.tsx
+- [x] T062 [US4] Add panel transition animations with framer-motion in src/pages/EditorPage/EditorPage.tsx
+- [x] T063 [US4] Add close button handler to hide panel in src/features/tag-editor/ui/MainPanel/MainPanel.tsx
 
 **Checkpoint**: Navigation complete with animations
 
@@ -165,9 +165,9 @@
 
 ### Implementation
 
-- [ ] T064 [US5] Add @dnd-kit DndContext and SortableContext to TagList in src/features/tag-editor/ui/TagList/TagList.tsx
-- [ ] T065 [US5] Make ListItem draggable with useSortable hook in src/shared/ui/molecules/ListItem/ListItem.tsx
-- [ ] T066 [US5] Add reorderTags handler connecting DnD to store in src/features/tag-editor/ui/TagList/TagList.tsx
+- [x] T064 [US5] Add @dnd-kit DndContext and SortableContext to TagList in src/features/tag-editor/ui/TagList/TagList.tsx
+- [x] T065 [US5] Make ListItem draggable with useSortable hook in src/shared/ui/molecules/ListItem/ListItem.tsx
+- [x] T066 [US5] Add reorderTags handler connecting DnD to store in src/features/tag-editor/ui/TagList/TagList.tsx
 
 **Checkpoint**: Drag & drop complete
 
@@ -177,10 +177,10 @@
 
 **Purpose**: Final improvements
 
-- [ ] T067 [P] Add empty state UI when no tags exist in src/features/tag-editor/ui/TagList/TagList.tsx
-- [ ] T068 [P] Add Label validation (required, non-empty) in src/features/tag-editor/ui/ItemForm/ItemForm.tsx
-- [ ] T069 [P] Verify all barrel exports are correct across all index.ts files
-- [ ] T070 Run quickstart.md validation — verify all user flows work
+- [x] T067 [P] Add empty state UI when no tags exist in src/features/tag-editor/ui/TagList/TagList.tsx
+- [x] T068 [P] Add Label validation (required, non-empty) in src/features/tag-editor/ui/ItemForm/ItemForm.tsx
+- [x] T069 [P] Verify all barrel exports are correct across all index.ts files
+- [x] T070 Run quickstart.md validation — verify all user flows work
 
 ---
 

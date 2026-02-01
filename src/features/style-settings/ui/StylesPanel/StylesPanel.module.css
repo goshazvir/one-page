@@ -1,0 +1,85 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+  margin: 0 -14px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.styleOptions {
+  display: flex;
+  gap: 8px;
+}
+
+.styleOption {
+  width: 57px;
+  height: 37px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.styleOption1 {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.styleOption1:hover {
+  background-color: #3a3a3a;
+}
+
+.styleOption1.styleOptionSelected {
+  border-color: transparent;
+}
+
+.styleOption2 {
+  background-color: #2d3a50;
+  color: #56ADFF;
+}
+
+.styleOption2:hover {
+  background-color: #354560;
+}
+
+.styleOption3 {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.styleOption3:hover {
+  background-color: #2563eb;
+}
+
+.styleOption4 {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.styleOption4:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.styleOptionSelected {
+  background-color: rgba(255, 255, 255, 0.1);
+}

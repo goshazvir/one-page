@@ -4,36 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Onepage Tagline Editor — a no-code website builder element editor. Test task demonstrating scalable architecture for adding new element types.
-
-## Architecture
-
-**Feature-Sliced Design (FSD) + Atomic Design**. See `.specify/memory/constitution.md` for full principles.
-
-```
-src/
-├── app/           # Providers, global styles, App.tsx
-├── pages/         # Page components
-├── features/      # Business logic (tag-editor, style-settings)
-├── entities/      # Domain entities (tagline)
-└── shared/
-    └── ui/
-        ├── atoms/      # Button, Input, Icon
-        ├── molecules/  # InputField, SegmentedControl
-        └── organisms/  # Panel
-```
-
-**Import rules**: pages → features → entities → shared (downward only)
-
-## Tech Stack
-
-- React 19 + TypeScript 5.9 (strict)
-- MobX 6 + mobx-react-lite
-- Vite 7
-- CSS Modules
-- @dnd-kit (drag & drop)
-- framer-motion (animations)
-- clsx (class names)
+Onepage Tagline Editor — a no-code website builder element editor demonstrating scalable architecture for adding new element types.
 
 ## Commands
 
@@ -44,36 +15,60 @@ npm run lint     # ESLint
 npm run preview  # Preview production build
 ```
 
-## Path Aliases
+## Architecture
 
-Use `@/` for imports from `src/`:
-```typescript
-import { Button } from '@/shared/ui/atoms/Button'
+**Feature-Sliced Design (FSD) + Atomic Design**
+
+```
+src/
+├── app/           # Providers, global styles, App.tsx
+├── pages/         # Page components (EditorPage)
+├── features/      # Business logic (tag-editor, style-settings)
+├── entities/      # Domain entities (tagline with store, types, ui)
+└── shared/
+    ├── ui/
+    │   ├── atoms/      # Button, Input, Icon, Text
+    │   ├── molecules/  # InputField, ListItem, SegmentedControl
+    │   └── organisms/  # Panel
+    ├── api/        # API simulation
+    ├── lib/        # Utilities (cn, debounce)
+    └── config/     # Constants
 ```
 
-## Spec-Driven Workflow
+**Import rules**: pages → features → entities → shared (downward only, no cross-imports within same layer)
 
-Project uses spec-kit. Slash commands in order:
+## Tech Stack
 
-1. `/speckit.constitution` — Define principles (done)
-2. `/speckit.specify` — Create feature specification
-3. `/speckit.plan` — Implementation plan
-4. `/speckit.tasks` — Generate task list
-5. `/speckit.implement` — Execute implementation
+- React 19 + TypeScript 5.9 (strict mode)
+- MobX 6 + mobx-react-lite
+- Vite 7
+- CSS Modules
+- @dnd-kit (drag & drop)
+- framer-motion (animations)
 
 ## Key Patterns
 
-**MobX Stores**: One store per entity, use `makeAutoObservable`, provide via React Context.
+**MobX Components**: Always wrap components that read from store with `observer()`:
+```typescript
+import { observer } from 'mobx-react-lite';
+export const MyComponent = observer(() => { ... });
+```
 
-**Element Registry**: New element types registered via `registerElement()` — no core code modifications needed.
+**MobX Stores**: One store per entity, use `makeAutoObservable`, provide via React Context. Use `toJS()` when passing observable data to external APIs.
 
-**API Simulation**: Log calls via `console.log('POST http://api/...', data)`. Debounce style changes (300ms).
+**API Simulation**: Log calls via `apiSimulator.post('/endpoint', data)`. Debounce style changes (300ms).
 
-**ID Generation**: Use `crypto.randomUUID()` (built-in, no external package).
+**Path Aliases**: Use `@/` for imports from `src/`:
+```typescript
+import { Button } from '@/shared/ui';
+```
 
-## Active Technologies
-- TypeScript 5.9, React 19 + MobX 6, mobx-react-lite, @dnd-kit/core, @dnd-kit/sortable, framer-motion, clsx (001-tagline-editor)
-- N/A (in-memory state, simulated API via console.log) (001-tagline-editor)
+**ID Generation**: Use `crypto.randomUUID()` (built-in).
 
-## Recent Changes
-- 001-tagline-editor: Added TypeScript 5.9, React 19 + MobX 6, mobx-react-lite, @dnd-kit/core, @dnd-kit/sortable, framer-motion, clsx
+## Constitution
+
+Full architectural principles in `.specify/memory/constitution.md`. Key rules:
+- Each slice has public API via `index.ts`
+- Atoms must not contain business logic
+- Stores must not import React components
+- No `any` types without explicit justification
