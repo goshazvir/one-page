@@ -1,17 +1,18 @@
 .page {
   display: flex;
-  gap: var(--spacing-xl);
-  padding: var(--spacing-xl);
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 6vh, 80px) var(--spacing-xl);
   min-height: 100vh;
 }
 
-.preview {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.previewWrapper {
+  position: relative;
 }
 
 .panel {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: var(--spacing-xl);
 }

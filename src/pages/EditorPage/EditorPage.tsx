@@ -80,6 +80,7 @@ export const EditorPage = observer(() => {
               mode="create"
               onSave={handleAddTag}
               onBack={() => navigationStore.goToMain()}
+              onClose={() => navigationStore.close()}
             />
           </motion.div>
         );
@@ -102,6 +103,7 @@ export const EditorPage = observer(() => {
               tag={editingTag}
               onSave={handleUpdateTag}
               onBack={() => navigationStore.goToMain()}
+              onClose={() => navigationStore.close()}
             />
           </motion.div>
         );
@@ -121,6 +123,7 @@ export const EditorPage = observer(() => {
               settings={taglineStore.settings}
               onSettingsChange={(updates) => taglineStore.updateSettings(updates)}
               onBack={() => navigationStore.goToMain()}
+              onClose={() => navigationStore.close()}
             />
           </motion.div>
         );
@@ -132,16 +135,17 @@ export const EditorPage = observer(() => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.preview}>
+      <div className={styles.previewWrapper}>
         <TaglinePreview
           tags={taglineStore.tags}
           settings={taglineStore.settings}
+          onClick={() => navigationStore.open()}
         />
-      </div>
-      <div className={styles.panel}>
-        <AnimatePresence mode="wait">
-          {navigationStore.isOpen && renderPanelContent()}
-        </AnimatePresence>
+        <div className={styles.panel}>
+          <AnimatePresence mode="wait">
+            {navigationStore.isOpen && renderPanelContent()}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

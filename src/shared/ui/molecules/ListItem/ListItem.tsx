@@ -47,11 +47,12 @@ export const ListItem = ({
     <div
       ref={setNodeRef}
       style={style}
-      className={cn(styles.item, isDragging && styles.dragging, className)}
+      className={cn(styles.item, draggable && styles.itemDraggable, isDragging && styles.dragging, className)}
+      {...(draggable ? { ...attributes, ...listeners } : {})}
       {...props}
     >
       {draggable && (
-        <div className={styles.dragHandle} {...attributes} {...listeners}>
+        <div className={styles.dragHandle}>
           <Icon name="drag-handle" size={16} />
         </div>
       )}

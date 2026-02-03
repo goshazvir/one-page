@@ -26,7 +26,9 @@ export interface TagListProps {
 
 export const TagList = observer(({ tags, onTagClick, onTagDelete, onReorder }: TagListProps) => {
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(PointerSensor, {
+      activationConstraint: { distance: 5 },
+    }),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })

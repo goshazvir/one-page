@@ -1,6 +1,4 @@
 import type { InputHTMLAttributes } from 'react';
-import { Input } from '@/shared/ui/atoms';
-import { Text } from '@/shared/ui/atoms';
 import { cn } from '@/shared/lib';
 import styles from './InputField.module.css';
 
@@ -19,16 +17,12 @@ export const InputField = ({
   const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
 
   return (
-    <div className={cn(styles.field, className)}>
-      <Text as="label" size="xs" color="secondary" className={styles.label}>
+    <div className={cn(styles.field, error && styles.fieldError, className)}>
+      <label htmlFor={inputId} className={styles.label}>
         {label}
-      </Text>
-      <Input id={inputId} error={!!error} {...props} />
-      {error && (
-        <Text size="xs" className={styles.error}>
-          {error}
-        </Text>
-      )}
+      </label>
+      <input id={inputId} className={styles.input} {...props} />
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 };
