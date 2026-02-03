@@ -31,7 +31,7 @@ export const MainPanel = observer(({
           <TagList tags={tags} onTagClick={onTagClick} onTagDelete={onTagDelete} onReorder={onReorder} />
 
           <Button variant="ghost" onClick={onAddClick} className={styles.addButton}>
-            <Icon name="plus" size={16} />
+            <Icon name="plus" size={24} />
             Add item
           </Button>
         </div>

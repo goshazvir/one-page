@@ -20,7 +20,7 @@ export interface Tagline {
 
 export const defaultSettings: TaglineSettings = {
   style: 1,
-  size: 'M',
+  size: 'L',
   radius: 8,
   alignment: 'center',
 };

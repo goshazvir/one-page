@@ -5,7 +5,7 @@ export type PanelType = 'main' | 'create' | 'edit' | 'styles';
 export class PanelNavigationStore {
   currentPanel: PanelType = 'main';
   editingTagId: string | null = null;
-  isOpen: boolean = true;
+  isOpen: boolean = false;
 
   constructor() {
     makeAutoObservable(this);

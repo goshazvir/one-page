@@ -9,9 +9,10 @@ export interface ItemFormProps {
   tag?: Tag;
   onSave: (label: string, link: string) => void;
   onBack: () => void;
+  onClose: () => void;
 }
 
-export const ItemForm = observer(({ mode, tag, onSave, onBack }: ItemFormProps) => {
+export const ItemForm = observer(({ mode, tag, onSave, onBack, onClose }: ItemFormProps) => {
   const [label, setLabel] = useState(tag?.label || '');
   const [link, setLink] = useState(tag?.link || '');
   const [error, setError] = useState('');
@@ -27,7 +28,24 @@ export const ItemForm = observer(({ mode, tag, onSave, onBack }: ItemFormProps) 
     setError('');
   }, [tag]);
 
-  const handleSave = () => {
+  const handleLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setLabel(value);
+    if (error) setError('');
+    if (mode === 'edit' && value.trim()) {
+      onSave(value.trim(), link.trim());
+    }
+  };
+
+  const handleLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setLink(value);
+    if (mode === 'edit' && label.trim()) {
+      onSave(label.trim(), value.trim());
+    }
+  };
+
+  const handleCreate = () => {
     if (!label.trim()) {
       setError('Label is required');
       return;
@@ -36,16 +54,11 @@ export const ItemForm = observer(({ mode, tag, onSave, onBack }: ItemFormProps) 
     onBack();
   };
 
-  const handleLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLabel(e.target.value);
-    if (error) setError('');
-  };
-
-  const title = mode === 'create' ? 'Item' : 'Item';
+  const title = 'Item';
 
   return (
     <Panel>
-      <Panel.Header title={title} onBack={onBack} />
+      <Panel.Header title={title} onBack={onBack} onClose={onClose} />
       <Panel.Content>
         <div className={styles.form}>
           <InputField
@@ -59,12 +72,14 @@ export const ItemForm = observer(({ mode, tag, onSave, onBack }: ItemFormProps) 
           <InputField
             label="Link"
             value={link}
-            onChange={(e) => setLink(e.target.value)}
+            onChange={handleLinkChange}
             placeholder="https://example.com"
           />
-          <Button onClick={handleSave} className={styles.saveButton}>
-            {mode === 'create' ? 'Add' : 'Save'}
-          </Button>
+          {mode === 'create' && (
+            <Button onClick={handleCreate} className={styles.saveButton}>
+              Add
+            </Button>
+          )}
         </div>
       </Panel.Content>
     </Panel>

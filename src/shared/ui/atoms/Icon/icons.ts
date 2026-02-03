@@ -13,7 +13,7 @@ export const icons = {
   },
   'drag-handle': {
     viewBox: '0 0 24 24',
-    path: 'M8 6h.01M8 12h.01M8 18h.01M16 6h.01M16 12h.01M16 18h.01',
+    path: 'M12 6h.01M12 12h.01M12 18h.01',
   },
   'align-left': {
     viewBox: '0 0 24 24',
