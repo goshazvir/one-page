@@ -24,8 +24,10 @@ export const EditorPage = observer(() => {
     navigationStore.goToEdit(tagId);
   };
 
-  const handleAddTag = (label: string, link: string) => {
-    taglineStore.addTag(label, link);
+  const handleCreateTag = (label: string, link: string): string => {
+    const id = taglineStore.addTag(label, link);
+    navigationStore.goToEdit(id);
+    return id;
   };
 
   const handleUpdateTag = (label: string, link: string) => {
@@ -77,8 +79,8 @@ export const EditorPage = observer(() => {
             transition={panelTransition}
           >
             <ItemForm
-              mode="create"
-              onSave={handleAddTag}
+              onCreate={handleCreateTag}
+              onSave={handleUpdateTag}
               onBack={() => navigationStore.goToMain()}
               onClose={() => navigationStore.close()}
             />
@@ -99,7 +101,6 @@ export const EditorPage = observer(() => {
             transition={panelTransition}
           >
             <ItemForm
-              mode="edit"
               tag={editingTag}
               onSave={handleUpdateTag}
               onBack={() => navigationStore.goToMain()}

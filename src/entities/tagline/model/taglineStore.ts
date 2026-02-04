@@ -21,7 +21,7 @@ export class TaglineStore {
     return this.tags.find((tag) => tag.id === id);
   }
 
-  addTag(label: string, link: string): void {
+  addTag(label: string, link: string): string {
     const tag: Tag = {
       id: crypto.randomUUID(),
       label,
@@ -29,6 +29,7 @@ export class TaglineStore {
     };
     this.tags.push(tag);
     this.saveTagsToServer();
+    return tag.id;
   }
 
   updateTag(id: string, updates: Partial<Omit<Tag, 'id'>>): void {

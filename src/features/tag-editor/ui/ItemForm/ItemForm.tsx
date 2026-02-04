@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Panel, InputField, Button } from '@/shared/ui';
+import { Panel, InputField } from '@/shared/ui';
 import type { Tag } from '@/entities/tagline';
 import styles from './ItemForm.module.css';
 
 export interface ItemFormProps {
-  mode: 'create' | 'edit';
   tag?: Tag;
   onSave: (label: string, link: string) => void;
+  onCreate?: (label: string, link: string) => string;
   onBack: () => void;
   onClose: () => void;
 }
 
-export const ItemForm = observer(({ mode, tag, onSave, onBack, onClose }: ItemFormProps) => {
+export const ItemForm = observer(({ tag, onSave, onCreate, onBack, onClose }: ItemFormProps) => {
   const [label, setLabel] = useState(tag?.label || '');
   const [link, setLink] = useState(tag?.link || '');
-  const [error, setError] = useState('');
+  const createdIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (tag) {
@@ -25,14 +25,20 @@ export const ItemForm = observer(({ mode, tag, onSave, onBack, onClose }: ItemFo
       setLabel('');
       setLink('');
     }
-    setError('');
+    createdIdRef.current = null;
   }, [tag]);
+
+  const isEditing = !!tag;
 
   const handleLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setLabel(value);
-    if (error) setError('');
-    if (mode === 'edit' && value.trim()) {
+
+    if (isEditing) {
+      onSave(value.trim(), link.trim());
+    } else if (value.trim() && onCreate && !createdIdRef.current) {
+      createdIdRef.current = onCreate(value.trim(), link.trim());
+    } else if (createdIdRef.current) {
       onSave(value.trim(), link.trim());
     }
   };
@@ -40,25 +46,15 @@ export const ItemForm = observer(({ mode, tag, onSave, onBack, onClose }: ItemFo
   const handleLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setLink(value);
-    if (mode === 'edit' && label.trim()) {
+
+    if (isEditing || createdIdRef.current) {
       onSave(label.trim(), value.trim());
     }
   };
 
-  const handleCreate = () => {
-    if (!label.trim()) {
-      setError('Label is required');
-      return;
-    }
-    onSave(label.trim(), link.trim());
-    onBack();
-  };
-
-  const title = 'Item';
-
   return (
     <Panel>
-      <Panel.Header title={title} onBack={onBack} onClose={onClose} />
+      <Panel.Header title="Item" onBack={onBack} onClose={onClose} />
       <Panel.Content>
         <div className={styles.form}>
           <InputField
@@ -66,7 +62,6 @@ export const ItemForm = observer(({ mode, tag, onSave, onBack, onClose }: ItemFo
             value={label}
             onChange={handleLabelChange}
             placeholder="Enter tag label"
-            error={error}
             autoFocus
           />
           <InputField
@@ -75,11 +70,6 @@ export const ItemForm = observer(({ mode, tag, onSave, onBack, onClose }: ItemFo
             onChange={handleLinkChange}
             placeholder="https://example.com"
           />
-          {mode === 'create' && (
-            <Button onClick={handleCreate} className={styles.saveButton}>
-              Add
-            </Button>
-          )}
         </div>
       </Panel.Content>
     </Panel>
