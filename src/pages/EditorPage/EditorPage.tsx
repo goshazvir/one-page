@@ -81,6 +81,7 @@ export const EditorPage = observer(() => {
             <ItemForm
               onCreate={handleCreateTag}
               onSave={handleUpdateTag}
+              onDelete={handleDeleteTag}
               onBack={() => navigationStore.goToMain()}
               onClose={() => navigationStore.close()}
             />
@@ -103,6 +104,7 @@ export const EditorPage = observer(() => {
             <ItemForm
               tag={editingTag}
               onSave={handleUpdateTag}
+              onDelete={handleDeleteTag}
               onBack={() => navigationStore.goToMain()}
               onClose={() => navigationStore.close()}
             />

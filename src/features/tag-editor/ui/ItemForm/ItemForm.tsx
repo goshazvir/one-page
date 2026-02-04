@@ -8,11 +8,12 @@ export interface ItemFormProps {
   tag?: Tag;
   onSave: (label: string, link: string) => void;
   onCreate?: (label: string, link: string) => string;
+  onDelete?: (id: string) => void;
   onBack: () => void;
   onClose: () => void;
 }
 
-export const ItemForm = observer(({ tag, onSave, onCreate, onBack, onClose }: ItemFormProps) => {
+export const ItemForm = observer(({ tag, onSave, onCreate, onDelete, onBack, onClose }: ItemFormProps) => {
   const [label, setLabel] = useState(tag?.label || '');
   const [link, setLink] = useState(tag?.link || '');
   const createdIdRef = useRef<string | null>(null);
@@ -35,11 +36,21 @@ export const ItemForm = observer(({ tag, onSave, onCreate, onBack, onClose }: It
     setLabel(value);
 
     if (isEditing) {
-      onSave(value.trim(), link.trim());
+      if (!value.trim() && tag && onDelete) {
+        onDelete(tag.id);
+        onBack();
+      } else {
+        onSave(value.trim(), link.trim());
+      }
     } else if (value.trim() && onCreate && !createdIdRef.current) {
       createdIdRef.current = onCreate(value.trim(), link.trim());
     } else if (createdIdRef.current) {
-      onSave(value.trim(), link.trim());
+      if (!value.trim() && onDelete) {
+        onDelete(createdIdRef.current);
+        createdIdRef.current = null;
+      } else {
+        onSave(value.trim(), link.trim());
+      }
     }
   };
 
