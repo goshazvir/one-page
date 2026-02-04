@@ -9,13 +9,13 @@ export interface TaglinePreviewProps {
   tags: Tag[];
   settings: TaglineSettings;
   className?: string;
-  onClick?: () => void;
+  onTagClick?: (tagId: string) => void;
 }
 
 export const TaglinePreview = observer(
-  ({ tags, settings, className, onClick }: TaglinePreviewProps) => {
+  ({ tags, settings, className, onTagClick }: TaglinePreviewProps) => {
     return (
-      <div className={cn(styles.preview, className)} onClick={onClick}>
+      <div className={cn(styles.preview, className)}>
         <Text as="h1" size="xl" weight="medium" className={styles.heading}>
           Tagline element
         </Text>
@@ -27,6 +27,7 @@ export const TaglinePreview = observer(
               key={tag.id}
               label={tag.label}
               settings={settings}
+              onClick={() => onTagClick?.(tag.id)}
             />
           ))}
         </div>

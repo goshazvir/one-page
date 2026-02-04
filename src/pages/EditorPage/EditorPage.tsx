@@ -142,7 +142,9 @@ export const EditorPage = observer(() => {
         <TaglinePreview
           tags={taglineStore.tags}
           settings={taglineStore.settings}
-          onClick={() => navigationStore.open()}
+          onTagClick={() => {
+            navigationStore.open();
+          }}
         />
         <div className={styles.panel}>
           <AnimatePresence mode="wait">

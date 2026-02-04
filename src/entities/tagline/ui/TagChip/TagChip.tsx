@@ -7,14 +7,15 @@ export interface TagChipProps {
   label: string;
   settings: TaglineSettings;
   className?: string;
+  onClick?: () => void;
 }
 
-export const TagChip = observer(({ label, settings, className }: TagChipProps) => {
+export const TagChip = observer(({ label, settings, className, onClick }: TagChipProps) => {
   const chipStyle = {
     '--chip-radius': `${settings.radius}px`,
   } as React.CSSProperties;
 
-  const content = (
+  return (
     <span
       className={cn(
         styles.chip,
@@ -23,10 +24,9 @@ export const TagChip = observer(({ label, settings, className }: TagChipProps) =
         className
       )}
       style={chipStyle}
+      onClick={onClick}
     >
       {label}
     </span>
   );
-
-  return content;
 });
